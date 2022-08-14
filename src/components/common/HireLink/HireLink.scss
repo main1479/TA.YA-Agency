@@ -1,0 +1,53 @@
+body {
+   .hireLink {
+      position: relative;
+      display: flex;
+      width: 30rem;
+      height: 30rem;
+      color: inherit;
+
+
+      &__circle {
+         display: block;
+         width: 100%;
+         height: 100%;
+         background: var(--color-secondary);
+         border-radius: 50%;
+      }
+
+      &__indicator {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         transform: translateX(50%);
+
+         svg {
+            width: 100%;
+            height: 100%;
+            transition: all .3s;
+            animation: hireLinkSpinning 10s linear infinite;
+         }
+      }
+
+      &:hover {
+         .hireLink__indicator {
+            svg {
+               margin-left: -50%;
+            }
+         }
+      }
+   }
+
+   @keyframes hireLinkSpinning {
+      0% {
+         transform: rotate(0);
+      }
+
+      100% {
+         transform: rotate(360deg);
+      }
+   }
+
+}

@@ -1,0 +1,44 @@
+body {
+   .heading {
+      font-weight: bold;
+   }
+
+   h1.heading {
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 64px;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      font-feature-settings: 'kern' off;
+   }
+
+   p.sub__heading {
+      position: relative;
+      padding-left: clamp(10rem, 15vw, 23.2rem);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+      color: rgba(255, 255, 255, 0.8);
+
+      &::before {
+         content: '';
+         position: absolute;
+         top: 50%;
+         left: 0;
+         width: clamp(10rem, 15vw, 19.2rem);
+         height: 2px;
+         background: #fff;
+      }
+   }
+
+
+   &.light {
+      p.sub__heading {
+         color: rgba(14, 17, 15, 0.8);
+
+         &::before {
+            background: #0E110F;
+         }
+      }
+   }
+}

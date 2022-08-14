@@ -1,0 +1,11 @@
+.header {
+   padding: 12rem 0;
+
+   &__container {
+      display: grid;
+      grid-template-columns: 1fr 1.10fr;
+
+   }
+
+
+}

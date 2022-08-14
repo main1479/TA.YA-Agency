@@ -1,0 +1,41 @@
+// ====================================
+// Variables
+// ====================================
+:root {
+	// ====================================
+	// Colors
+	// ====================================
+	--color-dark: #0e110f;
+	--color-light: #eef1f0;
+	--color-green: #29a37a;
+	--color-pink: #f5a3da;
+	--color-white: #fff;
+
+	// ====================================
+	// Breakpoints
+	// ====================================
+	--laptop: 75em; //1200px ÷ 16px = 75em
+	--laptop-small: 64em; //1024px ÷ 16px = 64em
+	--tab: 62em; //992px ÷ 16px = 62em
+	--tab-medium: 48em; //768px ÷ 16px = 48em
+	--tab-small: 35.9375em; //575px ÷ 16px = 35.9375em
+	--mbl: 30em; //480px ÷ 16px = 30em
+	--mbl-small: 23.75em; //380px ÷ 16px = 23.75em
+}
+
+$color-dark: var(--color-dark);
+$color-light: var(--color-light);
+$color-green: var(--color-green);
+$color-pink: var(--color-pink);
+$color-white: var(--color-white);
+
+
+// ====================================
+// ====================================
+$laptop: 75em; //1200px ÷ 16px = 75em
+$laptop-small: 64em; //1024px ÷ 16px = 64em
+$tab: 62em; //992px ÷ 16px = 62em
+$tab-medium: 48em; //768px ÷ 16px = 48em
+$tab-small: 35.9375em; //575px ÷ 16px = 35.9375em
+$mbl: 30em; //480px ÷ 16px = 30em
+$mbl-small: 23.75em; //380px ÷ 16px = 23.75em

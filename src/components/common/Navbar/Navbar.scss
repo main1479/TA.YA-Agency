@@ -1,0 +1,219 @@
+body {
+	.nav {
+		padding: 3rem 0;
+		border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+
+		&__container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&__links {
+			display: flex;
+			align-items: center;
+			gap: 4rem;
+			margin-left: auto;
+			margin-right: clamp(10rem, 15vw, 150px);
+
+			a {
+				color: inherit;
+				font-weight: 500;
+				transition: all 0.3s;
+				font-size: 1.6rem;
+
+				&:hover {
+					color: var(--color-primary);
+				}
+			}
+
+			@media only screen and (max-width:768px) {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 1s cubic-bezier(1, -0.16, 0.26, 1.59);
+				transform: translateX(110%);
+				height: 100vh;
+				flex-direction: column;
+				padding-top: 200px;
+				background: var(--color-dark);
+				z-index: 9;
+
+				a {
+					color: var(--color-white);
+					font-size: 3.6rem;
+
+					&:hover {
+						color: var(--color-primary);
+					}
+				}
+			}
+		}
+
+		// =========================================
+		// Theme Toggle Button
+		// =========================================
+		.toggleButton {
+			background: none;
+			border: none;
+			color: inherit;
+			cursor: pointer;
+			font-weight: 500;
+			transition: all 0.3s;
+			font-size: 1.6rem;
+			display: flex;
+			align-items: center;
+			gap: 13px;
+
+			&__text {
+				min-width: 48px;
+			}
+
+			&__text--light {
+				display: block;
+			}
+
+			&__text--dark {
+				display: none;
+			}
+
+			.switch {
+				width: 4.4rem;
+				height: 2.8rem;
+				border: 2px solid currentColor;
+				border-radius: 100px;
+				padding: 4px;
+				transform: rotate(-45deg);
+				display: flex;
+				align-items: center;
+				position: relative;
+
+				.circle {
+					transition: all 0.3s cubic-bezier(1, -0.16, 0.26, 1.59);
+					width: 1.6rem;
+					height: 1.6rem;
+					margin-top: 0.4px;
+					border-radius: 50%;
+					background: var(--color-white);
+					transform: translateX(1.5rem);
+				}
+			}
+		}
+
+		// =========================================
+		// Menu Toggle Button
+		// =========================================
+		.menu__toggle {
+			margin-left: 2rem;
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid currentColor;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			color: inherit;
+			display: none;
+			justify-content: center;
+			align-items: center;
+			transform: scale(1.6);
+			cursor: pointer;
+			z-index: 9;
+
+			&-text {
+				min-width: 48px;
+				font-size: 7px;
+
+				&--open {
+					display: block;
+				}
+
+				&--close {
+					display: none;
+				}
+			}
+
+		}
+
+
+
+		@media only screen and (max-width:768px) {
+			.toggleButton {
+				margin-left: auto;
+			}
+
+			.menu__toggle {
+				display: flex;
+			}
+		}
+
+	}
+
+	&.light {
+		.nav {
+			border-bottom: 2px solid rgba(14, 17, 15, 0.4);
+
+			&__links {
+				@media only screen and (max-width:768px) {
+					background: var(--color-light);
+					z-index: 9;
+
+					a {
+						color: var(--color-dark);
+						font-size: 3.6rem;
+
+						&:hover {
+							color: var(--color-green);
+						}
+					}
+				}
+			}
+
+			.toggleButton {
+				&__text--light {
+					display: none;
+				}
+
+				&__text--dark {
+					display: block;
+				}
+
+				.switch {
+					.circle {
+						background: var(--color-dark);
+						transform: translateX(0);
+					}
+				}
+			}
+
+			.menu__toggle {
+				background: rgba(16, 13, 20, 0.1);
+			}
+		}
+	}
+
+	&.nav-active {
+		.nav__links {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0);
+		}
+
+		// =========================================
+		// Menu Toggle Button
+		// =========================================
+		.menu__toggle {
+			&-text {
+				&--open {
+					display: none;
+				}
+
+				&--close {
+					display: block;
+				}
+			}
+
+		}
+	}
+}

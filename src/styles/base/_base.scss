@@ -1,0 +1,98 @@
+// Basic Reset
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	outline: none;
+}
+
+// Global Styles
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+
+	@media only screen and (max-width: $laptop) {
+		font-size: 58%;
+	}
+
+	@media only screen and (max-width: $laptop-small) {
+		font-size: 55%;
+	}
+}
+
+body {
+	font-family: 'Cabinet Grotesk';
+	overflow-x: hidden;
+
+	.dark-bg {
+		position: fixed;
+		top: -50px;
+		left: -50px;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: var(--color-dark);
+		z-index: -1;
+		transform: scale(0);
+		transform-origin: center center;
+		transition: all 0.5s ease-in-out;
+		transition-delay: width 0.5s;
+		transition-delay: height 0.5s;
+	}
+
+	.logo {
+		margin-right: 15px;
+	}
+
+	&.light {
+		--color-primary: #29a37a;
+		--color-secondary: #f5a3da;
+		--color-revert-text: #FFF;
+
+		::selection {
+			background: $color-dark;
+			color: $color-pink;
+		}
+
+		background: var(--color-light);
+		color: var(--color-dark);
+
+		.logo {
+			color: $color-dark;
+		}
+	}
+
+	&.dark {
+		--color-primary: #f5a3da;
+		--color-secondary: #29a37a;
+		--color-revert-text: var(--color-dark);
+
+		.dark-bg {
+			transform: scale(60);
+			width: 500px;
+			height: 500px;
+		}
+
+		::selection {
+			background: $color-pink;
+			color: $color-dark;
+		}
+
+		color: var(--color-white);
+
+		.logo {
+			color: $color-white;
+		}
+	}
+
+	.container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
