@@ -1,0 +1,159 @@
+body {
+
+   .services {
+      position: relative;
+      padding: clamp(8rem, 10vw, 12rem) 0;
+      background: var(--color-secondary);
+
+      &__top {
+         display: grid;
+         grid-template-columns: 1.21fr 1fr;
+         grid-gap: clamp(5rem, 10vw, 12rem);
+
+         @media only screen and (max-width: 850px) {
+            grid-template-columns: 1fr;
+            grid-gap: 3rem;
+
+            .services__content {
+               display: flex;
+               flex-direction: column;
+            }
+
+
+            .services__zigzag {
+               display: none;
+
+            }
+         }
+      }
+
+
+      &__images {
+         display: grid;
+         grid-template-columns: minmax(30rem, 37.5rem) 6rem;
+         grid-gap: 4rem;
+
+         &-img {
+            width: 100%;
+            height: 45.6rem;
+            position: relative;
+            overflow: hidden;
+
+            img {
+               height: 100%;
+               object-fit: contain;
+            }
+
+            .corner {
+               position: absolute;
+               top: -1px;
+               right: -1px;
+               width: 10rem;
+               height: 10rem;
+               background: var(--color-secondary);
+               clip-path: polygon(100% 0, 0 0, 100% 100%);
+            }
+         }
+
+         &-line {
+            width: 100%;
+            height: 45.6rem;
+            background: var(--color-primary);
+         }
+
+         @media only screen and (max-width: 850px) {
+            grid-template-columns: 1fr 10rem;
+            grid-gap: 10rem;
+
+            &-img {
+               width: 100%;
+
+               img {
+                  width: 100%;
+                  object-fit: cover;
+               }
+            }
+         }
+
+         @media only screen and (max-width: 550px) {
+            grid-template-columns: 1fr 3rem;
+            grid-gap: 3rem;
+
+            &-img {
+               width: 100%;
+               height: 40rem;
+
+               img {
+                  width: 100%;
+                  object-fit: cover;
+               }
+            }
+
+            &-line {
+               height: 40rem;
+            }
+         }
+      }
+
+      // =========================================
+      // Services Bottom
+      // =========================================
+      &__items {
+         margin-top: 9rem;
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+         grid-gap: 4rem;
+         grid-row-gap: 6rem;
+      }
+
+      &__item {
+
+         &-count {
+            font-weight: 700;
+            font-size: clamp(1.8rem, 2vw, 2.4rem);
+            line-height: 0;
+            padding: 2rem 0;
+            border-bottom: 2px solid currentColor;
+            margin-bottom: 4rem;
+
+            span {
+               display: inline-block;
+            }
+         }
+
+         &-text {
+            font-weight: 500;
+            font-size: clamp(3rem, 3vw, 3.4rem);
+            line-height: 110%;
+            margin-bottom: 3.6rem;
+         }
+
+         &-link {
+            display: flex;
+            align-items: center;
+            color: inherit;
+
+            font-weight: 700;
+            font-size: 1.6rem;
+            line-height: 100%;
+            text-transform: uppercase;
+
+            svg {
+               margin-left: 2rem;
+               transition: all .2s;
+            }
+
+            &:hover {
+               svg {
+                  transform: scale(1.1);
+               }
+            }
+         }
+      }
+
+
+
+
+
+   }
+}

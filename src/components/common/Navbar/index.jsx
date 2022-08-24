@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useRef } from 'react';
+import useOnScreen from '../../../hooks/useOnScreen';
 import './Navbar.scss';
 
 function getStoredTheme() {
@@ -11,10 +13,16 @@ function getStoredTheme() {
 }
 
 function Navbar() {
+	const navbarRef = useRef(null);
+	const navOnScreen = useOnScreen(navbarRef);
 	useEffect(() => {
 		document.body.classList.remove('light');
 		document.body.classList.remove('dark');
 		document.body.classList.add(getStoredTheme());
+
+		if (navbarRef.current) {
+			document.body.style.setProperty('--navHeight', navbarRef.current.scrollHeight + 'px');
+		}
 	}, []);
 
 	const handleTheme = () => {
@@ -34,9 +42,15 @@ function Navbar() {
 	};
 
 	return (
-		<nav className="nav" id="home">
+		<nav
+			className="nav"
+			ref={navbarRef}
+			data-scroll
+			data-scroll-sticky
+			data-scroll-target="#main-container"
+		>
 			<div className="container nav__container">
-				<a href="#home" className="logo">
+				<a href="#home" className="logo" data-scroll-to>
 					<svg
 						width="104"
 						height="30"
@@ -58,16 +72,24 @@ function Navbar() {
 				{/* Navigation Menu */}
 				<ul className="nav__links">
 					<li>
-						<a href="#home">HOME</a>
+						<a onClick={handleMobileNav} href="#home" data-scroll-to>
+							HOME
+						</a>
 					</li>
 					<li>
-						<a href="#services">SERVICES</a>
+						<a onClick={handleMobileNav} href="#services" data-scroll-to>
+							SERVICES
+						</a>
 					</li>
 					<li>
-						<a href="#blog">BLOG</a>
+						<a onClick={handleMobileNav} href="#blog" data-scroll-to>
+							BLOG
+						</a>
 					</li>
 					<li>
-						<a href="#contact">CONTACT</a>
+						<a onClick={handleMobileNav} href="#contact" data-scroll-to>
+							CONTACT
+						</a>
 					</li>
 				</ul>
 				{/* Theme Toggle Button */}

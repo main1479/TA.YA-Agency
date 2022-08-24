@@ -1,0 +1,24 @@
+body {
+   .haveCompleted {
+      margin-top: 12rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      grid-gap: 4rem;
+
+
+      &__item {
+         padding: 2rem 0;
+         border-bottom: 2px solid currentColor;
+
+         &-count {
+            display: inline-block;
+            padding: 0.3rem 2rem;
+            border-radius: 100px;
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+            border: 2px solid var(--color-text);
+         }
+      }
+
+   }
+}

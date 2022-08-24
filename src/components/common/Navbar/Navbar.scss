@@ -2,6 +2,12 @@ body {
 	.nav {
 		padding: 3rem 0;
 		border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+		position: relative;
+		z-index: 9;
+		background-color: var(--color-dark);
+		transition: background-color opacity .5s;
+		opacity: 0;
+		transition-delay: opacity .5s;
 
 		&__container {
 			display: flex;
@@ -153,6 +159,8 @@ body {
 	&.light {
 		.nav {
 			border-bottom: 2px solid rgba(14, 17, 15, 0.4);
+			background: var(--color-light);
+			transition-delay: opacity .5s;
 
 			&__links {
 				@media only screen and (max-width:768px) {
@@ -214,6 +222,24 @@ body {
 				}
 			}
 
+		}
+	}
+
+
+}
+
+html {
+	body {
+		.nav {
+			z-index: 9;
+		}
+	}
+
+	&:not(.has-scroll-scrolling) {
+		body {
+			.nav {
+				opacity: 1;
+			}
 		}
 	}
 }

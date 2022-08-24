@@ -1,11 +1,165 @@
-.header {
-   padding: 12rem 0;
+@import '../../styles/base/variables';
 
-   &__container {
-      display: grid;
-      grid-template-columns: 1fr 1.10fr;
+body {
+   .header {
+      padding: 12rem 0;
+
+      @media only screen and (max-width: $tab) {
+         padding: 8rem 0;
+      }
+
+      &__container {
+         display: grid;
+         grid-template-columns: 1fr 1.10fr;
+
+         @media only screen and (max-width: $tab) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            grid-gap: 5rem;
+            margin-bottom: 5rem !important;
+
+            .hireLink {
+               margin-left: auto;
+               margin-right: 10rem;
+            }
+         }
+
+      }
+
+      &__content {
+         @media only screen and (max-width: $tab) {
+            grid-row: 1/2;
+            display: flex;
+            flex-direction: column;
+
+            p.sub__heading {
+               margin-top: 2rem !important;
+            }
+         }
+
+         @media only screen and (max-width: $mbl) {
+            h1 {
+               text-align: center;
+               font-size: 50px !important;
+            }
+         }
+      }
+
+
+      &__banner {
+         position: relative;
+         width: 100%;
+         height: 45.6rem;
+
+         &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+
+         .zigzag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-45deg) translate(-30%, -125%);
+            width: 24.4rem;
+            height: 3.6rem;
+         }
+
+         .corner {
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            width: 10rem;
+            height: 10rem;
+            background: var(--color-dark);
+            clip-path: polygon(0 0, 0% 100%, 100% 100%);
+         }
+
+         .box {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10rem;
+            height: 10rem;
+            display: block;
+            background: var(--color-dark);
+
+            &--1 {
+               bottom: 10rem;
+               right: 10rem;
+               background: var(--color-secondary);
+            }
+         }
+
+
+         @media only screen and (max-width: $tab) {
+            height: 30rem;
+
+            .corner,
+            .box {
+               width: 5rem;
+               height: 5rem;
+            }
+
+            .box {
+               &--1 {
+                  bottom: 5rem;
+                  right: 5rem;
+               }
+
+               &--2 {
+                  bottom: 0;
+                  right: 0;
+               }
+            }
+         }
+
+         @media only screen and (max-width: $tab-small) {
+            .zigzag {
+               width: 15rem;
+            }
+         }
+
+         @media only screen and (max-width: $mbl) {
+            height: 20rem;
+
+            .zigzag {
+               width: 10rem;
+            }
+         }
+
+         @media only screen and (max-width: $mbl-small) {
+            height: 15rem;
+
+            .zigzag {
+               width: 8rem;
+               height: 2rem;
+            }
+
+         }
+
+
+      }
+
+
 
    }
 
+   &.light {
+      .header {
+         &__banner {
+            .corner {
+               background: var(--color-light);
+            }
 
+            .box--2 {
+               background: var(--color-light);
+            }
+         }
+
+
+
+      }
+   }
 }
