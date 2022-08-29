@@ -5,9 +5,8 @@ body {
 		position: relative;
 		z-index: 9;
 		background-color: var(--color-dark);
-		transition: background-color opacity .5s;
-		opacity: 0;
-		transition-delay: opacity .5s;
+		transition: background-color, opacity .5s;
+		transition-delay: background-color, opacity .5s;
 
 		&__container {
 			display: flex;
@@ -233,6 +232,13 @@ html {
 		.nav {
 			z-index: 9;
 		}
+
+		&:not(.nav-active) {
+			.nav {
+				opacity: 0;
+			}
+		}
+
 	}
 
 	&:not(.has-scroll-scrolling) {

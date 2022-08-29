@@ -77,8 +77,14 @@ body {
          }
 
 
-         @media only screen and (max-width:1250px) {
-            transform: rotate(15deg) translate(0%, -15%);
+         @media only screen and (max-width:1250px),
+         screen and (max-height:900px) {
+            transform: rotate(15deg) translate(0%, 45%);
+            padding: 2rem;
+
+            h2 {
+               font-size: 3.5rem !important;
+            }
 
             &:nth-of-type(2) {
                padding-left: clamp(25rem, 20vw, 60rem);
@@ -163,10 +169,26 @@ body {
             opacity: 0.8;
          }
 
-         @media only screen and (max-width: 1250px) {
-            margin-top: 15rem;
-            margin-left: clamp(2rem, 4vw, 10rem);
+         @media only screen and (max-width: 768px) {
+            gap: 1.5rem;
+
+            &-count {
+               font-size: 2.6rem;
+               margin-left: 1rem;
+            }
+
+            &-title {
+               font-size: 2.5rem;
+            }
          }
+      }
+
+      &__grid {
+         margin-top: 20rem;
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+         grid-gap: 2rem;
+         grid-row-gap: 5rem;
       }
    }
 
